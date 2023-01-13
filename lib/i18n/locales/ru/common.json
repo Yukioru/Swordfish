@@ -1,0 +1,7 @@
+{
+  "menu": {
+    "login": "Вход",
+    "register": "Регистрация"
+  },
+  "languageSwitcher": "Переключить с {{lng}} на: "
+}

@@ -1,0 +1,7 @@
+{
+  "menu": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "languageSwitcher": "Switch from {{lng}} to: "
+}
