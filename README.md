@@ -1,4 +1,4 @@
-<img src="https://yukioru.github.io/static/public/swordfish.png" width="320" style="float:right">
+<img src="https://yukioru.github.io/static/public/swordfish.png" width="320" align="right">
 
 ## Swordfish
 A demo project for Next 13 `/app` directory
