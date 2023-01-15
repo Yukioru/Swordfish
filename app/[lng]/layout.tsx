@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { PropsWithParams } from 'types';
 import { dir } from 'i18next';
-// import { languages } from '@/lib/i18n/settings';
+import { languages } from '@/lib/i18n/settings';
 import { GlobalServerContext } from '@/lib/GlobalServerContext';
 import GlobalContextClientProvider from '@/components/GlobalContextClientProvider';
 import Header from '@/components/Header';
@@ -17,10 +17,17 @@ const manrope = Manrope({
   variable: '--font-manrope',
 });
 
-// https://github.com/vercel/next.js/pull/43395
-// export async function generateStaticParams() {
-//   return languages.map((lng) => ({ lng }));
-// }
+/**
+ * Disabled for development.
+ * Reason: https://github.com/vercel/next.js/pull/43395
+ */
+export let generateStaticParams = undefined;
+if (process.env.NODE_ENV === 'production') {
+  // @ts-expect-error Conditional export
+  generateStaticParams = async () => {
+    return languages.map((lng) => ({ lng }));
+  };
+}
 
 function RootLayout({ children, params }: PropsWithChildren<PropsWithParams>) {
   return (
