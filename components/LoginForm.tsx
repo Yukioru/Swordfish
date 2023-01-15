@@ -7,7 +7,7 @@ import { GlobalClientContext } from '@/lib/GlobalClientContext';
 
 function LoginForm() {
   const { lng } = useContext(GlobalClientContext);
-  const { t } = useTranslation(lng, 'auth');
+  const { t } = useTranslation(lng, 'login');
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -19,7 +19,7 @@ function LoginForm() {
       <br />
       <input id="email" type="text" name="email" placeholder={t('email')!} />
       <br />
-      <button type="submit">{t('action.login')}</button>
+      <button type="submit">{t('action')}</button>
     </form>
   );
 }

@@ -1,0 +1,8 @@
+{
+  "head": {
+    "title": "Sign In",
+    "description": "Sign In to Swordfish"
+  },
+  "email": "Email",
+  "action": "Login"
+}

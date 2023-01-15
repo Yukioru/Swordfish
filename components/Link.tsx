@@ -1,17 +1,12 @@
 import { GlobalServerContext } from '@/lib/GlobalServerContext';
 import isAbsoluteURL from '@/lib/isAbsoluteURL';
-import NextLink, { LinkProps } from 'next/link';
+import NextLink from 'next/link';
 import { forwardRef, Ref, useContext } from 'react';
 import { fallbackLng } from '@/lib/i18n/settings';
+import { LinkDefaultProps } from 'types';
 
 function Link(
-  {
-    href,
-    ...props
-  }: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> &
-    LinkProps & {
-      children?: React.ReactNode;
-    } & React.RefAttributes<HTMLAnchorElement>,
+  { href, ...props }: LinkDefaultProps,
   ref: Ref<HTMLAnchorElement>
 ) {
   const { lng } = useContext(GlobalServerContext);

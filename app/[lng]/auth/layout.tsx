@@ -1,18 +1,9 @@
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { PropsWithChildren } from 'react';
-import { PropsWithParams } from 'types';
 
-function AuthTemplate({
-  children,
-  params,
-}: PropsWithChildren<PropsWithParams>) {
+function AuthLayout({ children }: PropsWithChildren) {
   return (
-    <div className="container min-h-screen">
-      {children}
-      {/* @ts-expect-error Server Component */}
-      <LanguageSwitcher currentLang={params.lng} />
-    </div>
+    <div className="m-auto w-full max-w-xs shrink-0 py-12">{children}</div>
   );
 }
 
-export default AuthTemplate;
+export default AuthLayout;

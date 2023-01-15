@@ -1,4 +1,8 @@
 {
+  "head": {
+    "title": "Home",
+    "description": "Welcome to {{siteName}}. Here you can check out the features of Next 13."
+  },
   "menu": {
     "login": "Login",
     "register": "Register"

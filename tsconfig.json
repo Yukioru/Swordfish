@@ -17,13 +17,15 @@
     "baseUrl": ".",
     "types": ["react/next"],
     "paths": {
+      "@/config/*": ["config/*"],
+      "@/assets/*": ["assets/*"],
       "@/app/*": ["app/*"],
       "@/lib/*": ["lib/*"],
       "@/components/*": ["components/*"],
       "@/hooks/*": ["hooks/*"],
       "@/styles/*": ["styles/*"],
       "@/prisma/*": ["prisma/*"],
-      "@/templates/*": ["templates/*"],
+      "@/templates/*": ["templates/*"]
     },
     "plugins": [
       {
