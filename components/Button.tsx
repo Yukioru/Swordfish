@@ -3,11 +3,15 @@ import { ButtonDefaultProps } from 'types';
 import withButtonStyle from '@/lib/hoc/withButtonStyle';
 
 function Button(
-  { children, ...props }: PropsWithChildren<ButtonDefaultProps>,
+  {
+    children,
+    type = 'button',
+    ...props
+  }: PropsWithChildren<ButtonDefaultProps>,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
   return (
-    <button ref={ref} {...props}>
+    <button ref={ref} type={type} {...props}>
       {children}
     </button>
   );

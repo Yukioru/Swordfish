@@ -1,8 +1,10 @@
 {
   "head": {
-    "title": "Вход",
-    "description": "Войти в Swordfish"
+    "title": "Авторизация",
+    "description": "Авторизоваться в Swordfish"
   },
+  "heading": "Авторизация",
   "email": "Электронная почта",
-  "action": "Войти"
+  "login": "Войти",
+  "register": "Зарегистрироваться"
 }

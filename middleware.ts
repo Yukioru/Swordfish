@@ -5,7 +5,7 @@ import acceptLanguage from '@/lib/accept-language';
 acceptLanguage.languages(languages);
 
 export const config = {
-  matcher: '/:lng*',
+  matcher: '/((?!api|_next/static|_next/image|favicon.ico).*)',
 };
 
 const cookieName = String(process.env.I18N_COOKIE_NAME);

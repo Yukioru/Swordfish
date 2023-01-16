@@ -3,7 +3,7 @@ import { PropsWithParams } from 'types';
 import { dir } from 'i18next';
 import { languages } from '@/lib/i18n/settings';
 import { GlobalServerContext } from '@/lib/GlobalServerContext';
-import GlobalContextClientProvider from '@/components/GlobalContextClientProvider';
+import GlobalClientContextProvider from '@/components/GlobalClientContextProvider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import '@/styles/globals.css';
@@ -39,11 +39,11 @@ function RootLayout({ children, params }: PropsWithChildren<PropsWithParams>) {
       <head />
       <body className="contents">
         <GlobalServerContext.Provider value={{ lng: params.lng }}>
-          <GlobalContextClientProvider lng={params.lng}>
+          <GlobalClientContextProvider lng={params.lng}>
             <Header />
             <main className="flex grow flex-col">{children}</main>
             <Footer />
-          </GlobalContextClientProvider>
+          </GlobalClientContextProvider>
         </GlobalServerContext.Provider>
       </body>
     </html>

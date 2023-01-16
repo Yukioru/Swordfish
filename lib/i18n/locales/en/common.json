@@ -7,5 +7,10 @@
     "login": "Login",
     "register": "Register"
   },
+  "form": {
+    "validate": {
+      "notEmpty": "This field cannot be empty"
+    }
+  },
   "languageSwitcher": "Switch from {{lng}} to: "
 }

@@ -8,11 +8,11 @@ import Link from './Link';
 function Header() {
   const { lng } = useContext(GlobalServerContext);
   return (
-    <header className="sticky top-0 z-10 mb-4 bg-white/80 py-3 shadow backdrop-blur">
-      <div className="container flex items-center">
+    <header className="sticky top-0 z-10 mb-4 h-16 bg-white/80 shadow backdrop-blur">
+      <div className="container flex h-full items-center">
         <Link
           href="/"
-          className="flex items-center space-x-1 active:opacity-90"
+          className="flex h-full items-center space-x-1 active:opacity-90"
         >
           <Image priority alt="Swordfish" src={logoSvg} width={40} />
           <span className="text-xl font-extrabold leading-10 tracking-tight">

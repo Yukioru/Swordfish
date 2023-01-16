@@ -8,7 +8,7 @@ async function HeaderActions({ lng }: { lng: string }) {
   // console.log('user', user);
 
   return (
-    <div className="ml-auto">
+    <div className="ml-auto flex h-full items-center">
       <ButtonLink href="/auth/login">{t('menu.login')}</ButtonLink>
     </div>
   );

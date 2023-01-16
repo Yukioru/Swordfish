@@ -10,18 +10,31 @@ import {
 import { ElementDefaultProps } from 'types';
 import { cx } from '../utils';
 
+interface ExtraButtonProps {
+  block?: boolean;
+}
+
 function withButtonStyle<P = ElementDefaultProps>(
   WrappedComponent: ComponentType<PropsWithChildren<P | ElementDefaultProps>>
-): ForwardRefExoticComponent<P & RefAttributes<HTMLElement>> {
+): ForwardRefExoticComponent<
+  P & ExtraButtonProps & RefAttributes<HTMLElement>
+> {
   function Wrapped(
-    { className, ...props }: PropsWithChildren<P | ElementDefaultProps>,
+    {
+      className,
+      block,
+      ...props
+    }: PropsWithChildren<(P & ExtraButtonProps) | ElementDefaultProps>,
     ref: ForwardedRef<HTMLElement>
   ) {
     return (
       <WrappedComponent
         ref={ref}
         className={cx(
-          'rounded-md bg-black px-3 pt-1 pb-1.5 text-sm font-medium tracking-wide text-white shadow-sm shadow-black/25 transition-shadow hover:shadow-lg hover:shadow-black/25 active:bg-black/90',
+          'rounded-sm bg-black px-3 pt-1 pb-1.5 text-sm font-medium tracking-wide text-white shadow-sm shadow-black/25 transition-shadow hover:shadow-md hover:shadow-black/25 active:bg-black/90',
+          {
+            'w-full': block,
+          },
           className
         )}
         {...props}
@@ -33,7 +46,9 @@ function withButtonStyle<P = ElementDefaultProps>(
 
   const WrappedWithRef = forwardRef<
     HTMLElement,
-    PropsWithoutRef<PropsWithChildren<P | ElementDefaultProps>>
+    PropsWithoutRef<
+      PropsWithChildren<(P & ExtraButtonProps) | ElementDefaultProps>
+    >
   >(Wrapped);
 
   return WrappedWithRef;

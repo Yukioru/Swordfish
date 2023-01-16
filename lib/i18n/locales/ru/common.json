@@ -7,5 +7,10 @@
     "login": "Вход",
     "register": "Регистрация"
   },
+  "form": {
+    "validate": {
+      "notEmpty": "Данное поле не может быть пустым"
+    }
+  },
   "languageSwitcher": "Переключить с {{lng}} на: "
 }

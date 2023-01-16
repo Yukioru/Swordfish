@@ -1,8 +1,10 @@
 {
   "head": {
-    "title": "Sign In",
-    "description": "Sign In to Swordfish"
+    "title": "Authorization",
+    "description": "Authorization to Swordfish"
   },
+  "heading": "Authorization",
   "email": "Email",
-  "action": "Login"
+  "login": "Sign In",
+  "register": "Sign Up"
 }
