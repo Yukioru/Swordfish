@@ -5,13 +5,14 @@ import { useTranslation } from '@/lib/i18n';
 import { PropsWithParams } from 'types';
 
 async function Head({ params }: PropsWithParams) {
-  const { t } = await useTranslation(params.lng, 'register');
+  const { t } = await useTranslation(params.lng, 'confirm');
   return (
     <>
       <title>{`${t('head.title')} | ${siteName}`}</title>
       <meta name="description" content={t('head.description')!} />
+      <meta name="robots" content="noindex" />
       <CommonTags />
-      <LocalesTags lng={params.lng} url="/auth/register" />
+      <LocalesTags lng={params.lng} url="/auth/confirm" />
     </>
   );
 }

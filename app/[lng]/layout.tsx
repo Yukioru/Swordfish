@@ -41,7 +41,7 @@ function RootLayout({ children, params }: PropsWithChildren<PropsWithParams>) {
         <GlobalServerContext.Provider value={{ lng: params.lng }}>
           <GlobalClientContextProvider lng={params.lng}>
             <Header />
-            <main className="flex grow flex-col">{children}</main>
+            <main className="container flex grow flex-col">{children}</main>
             <Footer />
           </GlobalClientContextProvider>
         </GlobalServerContext.Provider>

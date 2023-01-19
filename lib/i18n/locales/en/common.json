@@ -5,7 +5,7 @@
   },
   "menu": {
     "login": "Login",
-    "register": "Register"
+    "logout": "Logout"
   },
   "form": {
     "validate": {

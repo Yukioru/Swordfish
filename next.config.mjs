@@ -5,8 +5,8 @@ const nextConfig = {
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: ['@prisma/client', 'tailwindcss'],
-    transpilePackages: ['lodash'],
   },
+  transpilePackages: ['lodash'],
   async redirects() {
     return [
       {

@@ -42,12 +42,12 @@ function LoginForm() {
   }
 
   async function onSubmit(data: FormData) {
+    setLoading(true);
+
     const res = await signIn('email', {
       email: data.email,
-      redirect: false,
+      callbackUrl: status === 'login' ? '/' : '',
     });
-
-    console.log('res', res);
   }
 
   return (

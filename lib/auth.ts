@@ -13,6 +13,8 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/auth/login',
+    verifyRequest: '/auth/confirm',
+    newUser: '/settings',
   },
   providers: [
     EmailProvider({
@@ -31,15 +33,14 @@ export const authOptions: NextAuthOptions = {
             email: identifier,
           },
           select: {
-            emailVerifiedAt: true,
+            emailVerified: true,
           },
         });
 
-        const template = user?.emailVerifiedAt
+        const template = user?.emailVerified
           ? signInTemplate
           : activationTemplate;
-
-        const string = user?.emailVerifiedAt ? signInString : activationString;
+        const string = user?.emailVerified ? signInString : activationString;
 
         const { host } = new URL(url);
         const transport = createTransport(provider.server);
@@ -49,6 +50,9 @@ export const authOptions: NextAuthOptions = {
           subject: `Sign in to ${host}`,
           text: string({ url }),
           html: template({ url }),
+          headers: {
+            'X-Entity-Ref-ID': String(new Date().getTime()),
+          },
         });
         const failed = result.rejected.concat(result.pending).filter(Boolean);
         if (failed.length) {
@@ -70,15 +74,14 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async jwt({ token, user }) {
-      const dbUser = {
-        id: 'demo',
-        name: 'Demo',
-        email: 'demo@test.test',
-        image: 'https://picsum.photos/200',
-      };
+      const dbUser = await db.user.findFirst({
+        where: {
+          email: token.email,
+        },
+      });
 
-      if (!dbUser && user) {
-        token.id = user.id;
+      if (!dbUser) {
+        token.id = String(user?.id);
         return token;
       }
 
