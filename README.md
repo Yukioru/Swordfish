@@ -11,7 +11,7 @@ A demo project for Next 13 `/app` directory
 - Prisma
 - Next-Auth
 - nodemailer
-- mjml
+- <s>mjml</s> (Sadge, not worked)
 
 ### How to run
 1. `pnpm i`;
