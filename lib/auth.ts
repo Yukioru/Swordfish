@@ -9,7 +9,9 @@ import { activationString, activationTemplate } from '@/templates/activation';
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
   session: {
-    strategy: 'jwt',
+    strategy: 'database',
+    maxAge: 24 * 60 * 60 * 30, // 30 days
+    updateAge: 24 * 60 * 60, // 24 hours
   },
   pages: {
     signIn: '/auth/login',
@@ -62,35 +64,11 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ token, session }) {
-      if (token) {
-        session.user = {
-          id: token.id,
-          name: token.name,
-          email: token.email,
-          image: token.picture,
-        };
+    async session({ session, token, user }) {
+      if (user && session.user) {
+        session.user.id = user.id;
       }
       return session;
-    },
-    async jwt({ token, user }) {
-      const dbUser = await db.user.findFirst({
-        where: {
-          email: token.email,
-        },
-      });
-
-      if (!dbUser) {
-        token.id = String(user?.id);
-        return token;
-      }
-
-      return {
-        id: dbUser.id,
-        name: dbUser.name,
-        email: dbUser.email,
-        picture: dbUser.image,
-      };
     },
   },
 };
