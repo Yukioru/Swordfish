@@ -18,6 +18,9 @@ async function Home({ params }: PropsWithParams) {
         <Link href="/auth">Link to /auth</Link>
       </p>
       <p>
+        <Link href="/settings">Link to /settings</Link>
+      </p>
+      <p>
         <Link href="https://google.com">Go to Google absolute</Link>
       </p>
     </div>
