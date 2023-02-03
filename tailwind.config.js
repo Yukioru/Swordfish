@@ -1,4 +1,5 @@
 const { fontFamily, spacing, screens } = require('tailwindcss/defaultTheme');
+const windyRadixPalettePlugin = require('windy-radix-palette');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -24,5 +25,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [windyRadixPalettePlugin],
 };
