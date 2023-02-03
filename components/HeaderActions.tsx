@@ -1,7 +1,7 @@
 import { useTranslation } from '@/lib/i18n';
 import { getCurrentUser } from '@/lib/session';
-import ButtonLink from './ButtonLink';
 import HeaderUser from './HeaderUser';
+import Link from './Link';
 
 async function HeaderActions({ lng }: { lng: string }) {
   const { t } = await useTranslation(lng, 'common');
@@ -15,7 +15,9 @@ async function HeaderActions({ lng }: { lng: string }) {
       {isAuth ? (
         <HeaderUser lng={lng} user={user} />
       ) : (
-        <ButtonLink href="/auth/login">{t('menu.login')}</ButtonLink>
+        <Link className="button button-md" href="/auth/login">
+          {t('menu.login')}
+        </Link>
       )}
     </div>
   );

@@ -4,7 +4,6 @@ import { useTranslation } from '@/lib/i18n/client';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { MouseEvent } from 'react';
-import Button from './Button';
 
 function HeaderUser({ user, lng }: { user: User; lng: string }) {
   const { t } = useTranslation(lng, 'common');
@@ -17,7 +16,11 @@ function HeaderUser({ user, lng }: { user: User; lng: string }) {
     });
   }
 
-  return <Button onClick={handleLogout}>{t('menu.logout')}</Button>;
+  return (
+    <button className="button button-md" onClick={handleLogout}>
+      {t('menu.logout')}
+    </button>
+  );
 }
 
 export default HeaderUser;

@@ -27,10 +27,10 @@ function FormItem({ id, label, error, children }: FormItemProps) {
           id,
           'aria-invalid': error ? 'true' : 'false',
           className: cx(children?.props?.className, {
-            'border-red-500': Boolean(error),
+            'border-red-10': Boolean(error),
           }),
         })}
-      {<small className="h-6 leading-6 text-red-500">{error}</small>}
+      {<small className="h-6 leading-6 text-red-10">{error}</small>}
     </div>
   );
 }

@@ -3,5 +3,23 @@
 @tailwind utilities;
 
 body {
-  @apply text-stone-900;
+  @apply text-mauve-12;
+}
+
+@layer components {
+  .button {
+    @apply rounded-sm bg-mauve-12 font-medium tracking-wide text-mauve-1 shadow-sm shadow-blackA-4 transition-shadow hover:shadow-md hover:shadow-blackA-4 active:bg-mauve-11;
+  }
+
+  .button-md {
+    @apply px-3 pt-1 pb-1.5 text-sm;
+  }
+
+  .button-lg {
+    @apply px-4 pt-2 pb-2.5 text-base;
+  }
+
+  .input {
+    @apply rounded-sm border bg-mauve-2 border-mauve-10 px-3 leading-10 shadow transition-shadow hover:shadow-md focus:shadow-md focus:outline-none;
+  }
 }

@@ -7,7 +7,6 @@ import { useContext, useState } from 'react';
 import { GlobalClientContext } from '@/lib/GlobalClientContext';
 import FormItem from './FormItem';
 import Input from './Input';
-import Button from './Button';
 import { signIn } from 'next-auth/react';
 
 interface FormData {
@@ -63,9 +62,9 @@ function LoginForm() {
           placeholder="dumbledore@hogwarts.uk"
         />
       </FormItem>
-      <Button block type="submit">
+      <button className="button button-lg w-full" type="submit">
         {t(status)}
-      </Button>
+      </button>
     </form>
   );
 }
